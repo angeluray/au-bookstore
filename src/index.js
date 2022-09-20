@@ -6,6 +6,8 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './redux/configureStore';
 import reportWebVitals from './reportWebVitals';
 
 // Components files
@@ -17,11 +19,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <SiteNavbar />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/categories" element={<Categories />} />
-      </Routes>
+      <Provider store={store}>
+        <SiteNavbar />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/categories" element={<Categories />} />
+        </Routes>
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
 );
