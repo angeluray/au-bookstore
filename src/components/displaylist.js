@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { Array } from 'prop-types';
+import PropTypes from 'prop-types';
 import Book from './Book';
 
 const DisplayList = (props) => {
@@ -12,7 +12,11 @@ const DisplayList = (props) => {
 };
 
 DisplayList.propTypes = {
-  books: PropTypes.instanceOf(Array).isRequired,
+  books: PropTypes.instanceOf(Object),
+};
+
+DisplayList.defaultProps = {
+  books: [],
 };
 
 export default DisplayList;

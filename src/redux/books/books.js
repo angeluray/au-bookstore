@@ -2,10 +2,21 @@
 const ADD = 'bookstore/books/ADD';
 const REMOVE = 'bookstore/books/REMOVE';
 
-const myInitialState = [];
+const myInitialState = [
+  {
+    id: 1,
+    title: 'My Angel book',
+    author: 'Angel',
+  },
+  {
+    id: 2,
+    title: 'My second angel book',
+    author: 'Angel 2',
+  },
+];
 
 // Reducer section
-const reducerbookstore = (state = myInitialState, action) => {
+const reducerbookstore = (state = myInitialState, action = {}) => {
   switch (action.type) {
     case ADD:
       return [...state, action.book];
