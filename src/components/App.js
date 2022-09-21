@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import DisplayList from './displaylist';
 import Form from './form';
 
 const App = () => {
-  const [books] = useState([
-    {
-      id: 1,
-      title: 'Book1',
-      author: 'Author1',
-    },
-  ]);
+  const books = useSelector((state) => state.books);
 
   return (
     <div className="booksContainer">
