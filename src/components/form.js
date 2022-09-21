@@ -13,8 +13,8 @@ const Form = () => {
   };
   return (
     <form onSubmit={handleSubmit(submitBook)}>
-      <input type="text" {...register('title')} placeholder="Book title" />
-      <input type="text" {...register('author')} placeholder="Author" />
+      <input type="text" {...register('title', { required: true })} placeholder="Book title" />
+      <input type="text" {...register('author', { required: true })} placeholder="Author" />
       <input type="submit" value="Submit" />
     </form>
   );
