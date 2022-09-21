@@ -5,10 +5,11 @@ import { useForm } from 'react-hook-form';
 import { addMyBook } from '../redux/books/books';
 
 const Form = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const submitBook = (infobook) => {
     dispatch(addMyBook({ ...infobook, id: uuidv4() }));
+    reset();
   };
   return (
     <form onSubmit={handleSubmit(submitBook)}>
