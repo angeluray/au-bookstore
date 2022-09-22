@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchBooks());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="booksContainer">
