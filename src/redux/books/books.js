@@ -9,7 +9,7 @@ const ADD = `${BASEACTION}/ADD`;
 const REMOVE = `${BASEACTION}/REMOVE`;
 const BOOKFETCH = `${BASEACTION}/GET`;
 
-// FETCHBOOKS
+// Fetchbooks
 const fetchBooks = createAsyncThunk(BOOKFETCH, async () => {
   const res = await fetch(fullURL);
   const data = await res.json();
@@ -29,13 +29,13 @@ const addBookFetch = createAsyncThunk(ADD, async (book, thunkAPI) => {
   return book;
 });
 
-const removeBookFetch = createAsyncThunk(REMOVE, async (id) => {
+const removeBookFetch = createAsyncThunk(REMOVE, async (id, thunkAPI) => {
   await fetch(`${fullURL}/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  }).then(() => thunkAPI.dispatch(fetchBooks()));
   return id;
 });
 
@@ -76,9 +76,8 @@ const bookStoreSlice = createSlice({
       .addCase(removeBookFetch.pending, (state) => {
         state.loading = 'loading';
       })
-      .addCase(removeBookFetch.fulfilled, (state, action) => {
+      .addCase(removeBookFetch.fulfilled, (state) => {
         state.loading = 'completed';
-        state.books = action.payload;
       })
       .addCase(removeBookFetch.rejected, (state) => {
         state.loading = 'failed';
