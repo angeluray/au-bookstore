@@ -1,39 +1,96 @@
-// READ-ONLY action types name
-const ADD = 'bookstore/books/ADD';
-const REMOVE = 'bookstore/books/REMOVE';
+/* eslint-disable no-param-reassign */
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const myInitialState = [
-  {
-    id: 1,
-    title: 'My Angel book',
-    author: 'Angel',
-  },
-  {
-    id: 2,
-    title: 'My second angel book',
-    author: 'Angel 2',
-  },
-];
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const APID = '6jFLTwMRKqyHQ7J7Rg0F';
+const fullURL = `${baseURL + APID}/books`;
+const BASEACTION = 'bookstore/books/';
+const ADD = `${BASEACTION}/ADD`;
+const REMOVE = `${BASEACTION}/REMOVE`;
+const BOOKFETCH = `${BASEACTION}/GET`;
 
-// Reducer section
-const reducerbookstore = (state = myInitialState, action = {}) => {
-  switch (action.type) {
-    case ADD:
-      return [...state, action.book];
-    case REMOVE:
-      return state.filter((book) => book.id !== action.id);
-    default:
-      return state;
-  }
+// FETCHBOOKS
+const fetchBooks = createAsyncThunk(BOOKFETCH, async () => {
+  const res = await fetch(fullURL);
+  const data = await res.json();
+  // eslint-disable-next-line camelcase
+  const books = Object.keys(data).map((item_id) => ({ item_id, ...data[item_id][0] }));
+  return books;
+});
+
+const addBookFetch = createAsyncThunk(ADD, async (book, thunkAPI) => {
+  await fetch(fullURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  }).then(() => thunkAPI.dispatch(fetchBooks()));
+  return book;
+});
+
+const removeBookFetch = createAsyncThunk(REMOVE, async (id) => {
+  await fetch(`${fullURL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return id;
+});
+
+const bookStoreSlice = createSlice({
+  name: BASEACTION,
+  initialState: {
+    loading: 'pending',
+    books: [],
+  },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooks.pending, (state) => {
+        state.status = 'loading';
+      })
+      // Add `.addCase()` lines for each action case
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.loading = 'completed';
+        state.books = action.payload;
+      })
+
+      .addCase(fetchBooks.rejected, (state) => {
+        state.loading = 'failed';
+      })
+
+      .addCase(addBookFetch.pending, (state) => {
+        state.loading = 'loading';
+      })
+
+      .addCase(addBookFetch.fulfilled, (state) => {
+        state.loading = 'completed';
+      })
+
+      .addCase(addBookFetch.rejected, (state) => {
+        state.loading = 'failed';
+      })
+
+      .addCase(removeBookFetch.pending, (state) => {
+        state.loading = 'loading';
+      })
+      .addCase(removeBookFetch.fulfilled, (state, action) => {
+        state.loading = 'completed';
+        state.books = action.payload;
+      })
+      .addCase(removeBookFetch.rejected, (state) => {
+        state.loading = 'failed';
+      });
+  },
+});
+
+const { actions, reducer } = bookStoreSlice;
+export {
+  actions,
+  fetchBooks,
+  addBookFetch,
+  removeBookFetch,
 };
-
-// Action creators section
-export const addMyBook = (book) => ({
-  type: ADD, book,
-});
-
-export const removeMyBook = (id) => ({
-  type: REMOVE, id,
-});
-
-export default reducerbookstore;
+export default reducer;
