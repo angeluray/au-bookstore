@@ -17,15 +17,20 @@ const SiteNavbar = () => {
   return (
     <>
       <nav className="navBar">
-        <h1 className="navTitle">Bookstore CMS</h1>
-        <ul>
-          {links.map((nlink) => (
-            // eslint-disable-next-line
-            <li key={nlink.id} className={'li' + nlink.id.toString()}>
-              <NavLink to={nlink.path}>{nlink.Text}</NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className="ti-cat">
+          <h1 className="navTitle">Bookstore CMS</h1>
+          <ul>
+            {links.map((nlink) => (
+              // eslint-disable-next-line
+              <li key={nlink.id} className={'li' + nlink.id.toString()}>
+                <NavLink to={nlink.path}>{nlink.Text}</NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="profileNav">
+          <span className="material-icons">person</span>
+        </div>
       </nav>
     </>
   );

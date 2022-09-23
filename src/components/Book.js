@@ -17,12 +17,37 @@ const Book = (props) => {
 
   return (
     <li className="bookCard">
-      <h3>{category}</h3>
-      <h2>{title}</h2>
-      <h3>{author}</h3>
-      <button type="button">Comments</button>
-      <button type="button" onClick={removeBook}>Remove</button>
-      <button type="button">Edit</button>
+      <div className="bookContainer1">
+        <h3 className="category">{category}</h3>
+        <h2 className="bookTitle">{title}</h2>
+        <h3 className="bookAuthor">{author}</h3>
+        <button className="myButton" type="button">Comments</button>
+        <button className="myButton myMiddleButton" type="button" onClick={removeBook}>Remove</button>
+        <button className="myButton myLastButton" type="button">Edit</button>
+      </div>
+
+      <div className="bookContainer2">
+        <div className="progressContainer">
+          <div>
+            <div className="firstCircle">
+              <div className="subCircle" />
+            </div>
+          </div>
+          <section className="progressSection">
+            <p className="percentage">64%</p>
+            <h3 className="completed">completed</h3>
+          </section>
+        </div>
+        <div className="lineDevider" />
+        <div className="progressChapterContainer">
+          <section className="currentChapterContainer">
+            <h3 className="currentChapter">CURRENT CHAPTER</h3>
+            <p className="chapterInfo">Chapter 17</p>
+          </section>
+          <button type="button" className="updateBtn">UPDATE PROGRESS</button>
+        </div>
+
+      </div>
     </li>
   );
 };

@@ -9,16 +9,32 @@ const Form = () => {
   const dispatch = useDispatch();
   const submitBook = (infobook) => {
     dispatch(addBookFetch({ ...infobook, item_id: uuidv4() }));
-    /* console.log(dispatch(addBookFetch({ ...infobook, item_id: uuidv4() }))); */
     reset();
   };
   return (
-    <form onSubmit={handleSubmit(submitBook)}>
-      <input type="text" {...register('title', { required: true })} placeholder="Book title" />
-      <input type="text" {...register('author', { required: true })} placeholder="Author" />
-      <input type="text" {...register('category', { required: true })} placeholder="Category" />
-      <input type="submit" value="Submit" />
-    </form>
+    <div className="formParent">
+      <hr className="formDevider" />
+      <h2 className="titleForm">ADD NEW BOOK</h2>
+      <form onSubmit={handleSubmit(submitBook)}>
+        <div className="firstFormDevider">
+          <input className="myInput" type="text" {...register('title', { required: true })} placeholder="Book title" />
+          <input className="myInput" type="text" {...register('author', { required: true })} placeholder="Author" />
+        </div>
+        <div className="secondFormDevider">
+          <select className="mySelect" {...register('category', { required: true })}>
+            <option value="Action">Action</option>
+            <option value="Sci-fi">Science Fiction</option>
+            <option value="Economy">Economy</option>
+            <option value="Health">Health</option>
+            <option value="Education">Education</option>
+            <option value="Romance">Romance</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Fantasy">Fantasy</option>
+          </select>
+          <input className="submitBook" type="submit" value="ADD BOOK" />
+        </div>
+      </form>
+    </div>
   );
 };
 
