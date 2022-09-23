@@ -13,8 +13,8 @@ body {
   justify-content: space-between;
   height: 1.938rem;
   margin: 0 0 2.375rem;
-  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
-  box-shadow: 0 0 05px 0 rgba(0, 0, 0, 0.348);
+  padding: 1.788rem 6.188rem 1.788rem 6.25rem;
+  box-shadow: 0 0 05px 0 rgba(0, 0, 0, 0.136);
   background-color: #fff;
 }
 
@@ -24,11 +24,54 @@ body {
   font-size: 1.875rem;
 }
 
+a {
+  font-weight: 400;
+  text-decoration: none;
+  color: #7777779f;
+}
+
+.li1 a {
+  color: #121212;
+  font-weight: 300;
+}
+
 .profileNav {
-  width: 25px;
+  cursor: pointer;
+  width: 2.813rem;
+  height: 2.813rem;
   border-radius: 50%;
-  border: solid 1px #e8e8e8;
-  padding: 13px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.material-icons {
+  font-family: 'Material Icons', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  color: #0290ff;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
 .navBar ul {
@@ -43,17 +86,12 @@ body {
   align-items: center;
 }
 
-a {
-  font-weight: 400;
-  text-decoration: none;
-  color: #777777;
-}
-
 .booksContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  padding-bottom: 80px;
 }
 
 .cardContainer {
@@ -68,48 +106,52 @@ a {
   justify-content: space-between;
   width: 67rem;
   height: 10.625rem;
-  padding: 1.300rem 8.188rem 1.200rem 1.688rem;
+  padding: 1.05rem 8.188rem 1.2rem 1.688rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: #fff;
 }
 
 .category {
-  font-size: 0.995rem;
+  font-size: 0.875rem;
   font-family: 'Montserrat', sans-serif;
   color: #12121271;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .bookTitle {
   font-family: 'Bitter', serif;
-  font-weight: 900;
-  font-size: 1.575rem;
-  margin: 10px 0 0 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 10px 0 1px 0;
 }
 
 .bookAuthor {
   font-family: 'Bitter', serif;
-  font-size: 1.150rem;
+  font-size: 15px;
   font-weight: 300;
   letter-spacing: normal;
   color: #4386bf;
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .myButton {
- background-color: #fff;
- border: none;
- color: #4386bf;
- font-family: 'Bitter', serif;
- padding-left: 0;
- padding-right: 10px;
- font-size: 1.150rem;
+  background-color: #fff;
+  border: none;
+  color: #4386bf;
+  font-family: 'Bitter', serif;
+  font-weight: lighter;
+  padding-left: 0;
+  padding-right: 10px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .myMiddleButton {
- border-left: 1px solid #e8e8e8;
- border-right: 1px solid #e8e8e8;
- padding: 0px 10px;
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  padding: 0 10px;
 }
 
 .myLastButton {
@@ -129,29 +171,43 @@ a {
   margin-right: 4.938rem;
 }
 
-.circleProgress {
-  width: 110px;
-  height: 110px;
+.firstCircle {
+  width: 5.625rem;
+  height: 5.625rem;
+  padding: 0.63rem 0.625rem 0.75rem 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subCircle {
+  position: absolute;
+  border-radius: 50%;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 5px solid #307bbe;
+  border-left-color: #e8e8e8;
+  transform: rotate(45deg);
 }
 
 .percentage {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .completed {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.100rem;
+  font-size: 1.1rem;
   font-weight: 300;
   color: #12121296;
-  margin: 0px;
+  margin: 0;
 }
 
 .lineDevider {
- border-left: 1px solid #e8e8e8;
- margin-right: 3.688rem;
- height: 5rem;
+  border-left: 1px solid #e8e8e8;
+  margin-right: 3.688rem;
+  height: 5rem;
 }
 
 .progressChapterContainer {
@@ -167,17 +223,17 @@ a {
 
 .currentChapter {
   font-size: 1rem;
-  font-weight: 500;
-  font-family: 'Bitter', serif;  
+  font-weight: 300;
+  font-family: 'Bitter', serif;
   color: #12121296;
-  margin-top: 0px;
-  margin-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .chapterInfo {
-  font-size: 1.100rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  font-family: 'Bitter', serif;  
+  font-family: 'Bitter', serif;
   color: #121212;
   margin: 0 0 5px 0;
 }
@@ -185,52 +241,82 @@ a {
 .updateBtn {
   border: none;
   padding: 0.438rem 1.188rem 0.5rem 1.375rem;
-  margin-top: 15px;
+  margin-top: 8px;
   border-radius: 3px;
   background-color: #0290ff;
   font-size: 1rem;
   font-weight: 300;
   font-family: 'Bitter', serif;
   color: #fff;
+  cursor: pointer;
 }
 
 .formParent {
   width: 80vw;
   margin-top: 2.5rem;
   padding-left: 40px;
+  padding-bottom: 80px;
 }
 
 hr {
-  border-color: rgba(0, 0, 0, 0.067)
+  border-color: rgba(0, 0, 0, 0.067);
 }
 
 .titleForm {
   margin: 1.813rem 32.75rem 1.188rem 0;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.50rem;
+  font-size: 1.5rem;
   letter-spacing: -0.18px;
   color: #888;
 }
 
 form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
+  gap: 25px;
 }
 
-form input {
-  padding: 0.813rem 6.688rem 0.813rem 1.063rem;
+.submitBook {
+  padding: 0.813rem 4.1rem 0.813rem 3.7rem;
+  border: none;
   border-radius: 4px;
-  width: 15%;
+  font-family: 'Bitter', serif;
+  font-weight: 700;
+  color: #fff;
+  background-color: #0290ff;
+  margin-left: 13px;
+  cursor: pointer;
+}
+
+.firstFormDevider {
+  display: flex;
+  gap: 15px;
+}
+
+.secondFormDevider {
+  display: flex;
+}
+
+.myInput {
+  padding: 0.813rem 8.688rem 0.813rem 1.063rem;
+  border-radius: 4px;
+  width: 13.5rem;
   border: solid 1px #e8e8e8;
   background-color: #fff;
 }
 
-.submitBook {
-  font-family: 'Bitter', serif;
-  font-weight: 700;
-  color: #fff;
-  padding-left: 55px;
-  background-color: #0290ff;
-  margin-left: 25px;
+.myInput::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #12121255;
+}
+
+.mySelect {
+  padding: 0.813rem 4.788rem 0.813rem 1.063rem;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  background-color: #fff;
+  font-size: 1rem;
+  letter-spacing: -0.15px;
+  color: #121212;
+  font-family: "Montserrat", sans-serif;
 }
