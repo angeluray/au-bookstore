@@ -1,1 +1,236 @@
-/* Styles */
+body {
+  background-color: #fafafa;
+}
+
+#root {
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1.938rem;
+  margin: 0 0 2.375rem;
+  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+  box-shadow: 0 0 05px 0 rgba(0, 0, 0, 0.348);
+  background-color: #fff;
+}
+
+.navTitle {
+  font-family: 'Montserrat', sans-serif;
+  color: #0290ff;
+  font-size: 1.875rem;
+}
+
+.profileNav {
+  width: 25px;
+  border-radius: 50%;
+  border: solid 1px #e8e8e8;
+  padding: 13px;
+}
+
+.navBar ul {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.ti-cat {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: none;
+  color: #777777;
+}
+
+.booksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.938rem;
+}
+
+.bookCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 67rem;
+  height: 10.625rem;
+  padding: 1.300rem 8.188rem 1.200rem 1.688rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+}
+
+.category {
+  font-size: 0.995rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #12121271;
+}
+
+.bookTitle {
+  font-family: 'Bitter', serif;
+  font-weight: 900;
+  font-size: 1.575rem;
+  margin: 10px 0 0 0;
+}
+
+.bookAuthor {
+  font-family: 'Bitter', serif;
+  font-size: 1.150rem;
+  font-weight: 300;
+  letter-spacing: normal;
+  color: #4386bf;
+  margin-top: 0px;
+}
+
+.myButton {
+ background-color: #fff;
+ border: none;
+ color: #4386bf;
+ font-family: 'Bitter', serif;
+ padding-left: 0;
+ padding-right: 10px;
+ font-size: 1.150rem;
+}
+
+.myMiddleButton {
+ border-left: 1px solid #e8e8e8;
+ border-right: 1px solid #e8e8e8;
+ padding: 0px 10px;
+}
+
+.myLastButton {
+  padding-left: 10px;
+}
+
+.bookContainer2 {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  height: 100%;
+}
+
+.progressContainer {
+  display: flex;
+  gap: 1.313rem;
+  margin-right: 4.938rem;
+}
+
+.circleProgress {
+  width: 110px;
+  height: 110px;
+}
+
+.percentage {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.completed {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.100rem;
+  font-weight: 300;
+  color: #12121296;
+  margin: 0px;
+}
+
+.lineDevider {
+ border-left: 1px solid #e8e8e8;
+ margin-right: 3.688rem;
+ height: 5rem;
+}
+
+.progressChapterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.currentChapterContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.currentChapter {
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Bitter', serif;  
+  color: #12121296;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.chapterInfo {
+  font-size: 1.100rem;
+  font-weight: 500;
+  font-family: 'Bitter', serif;  
+  color: #121212;
+  margin: 0 0 5px 0;
+}
+
+.updateBtn {
+  border: none;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  margin-top: 15px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: 'Bitter', serif;
+  color: #fff;
+}
+
+.formParent {
+  width: 80vw;
+  margin-top: 2.5rem;
+  padding-left: 40px;
+}
+
+hr {
+  border-color: rgba(0, 0, 0, 0.067)
+}
+
+.titleForm {
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.50rem;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+form input {
+  padding: 0.813rem 6.688rem 0.813rem 1.063rem;
+  border-radius: 4px;
+  width: 15%;
+  border: solid 1px #e8e8e8;
+  background-color: #fff;
+}
+
+.submitBook {
+  font-family: 'Bitter', serif;
+  font-weight: 700;
+  color: #fff;
+  padding-left: 55px;
+  background-color: #0290ff;
+  margin-left: 25px;
+}
