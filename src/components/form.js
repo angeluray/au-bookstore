@@ -13,12 +13,16 @@ const Form = () => {
     reset();
   };
   return (
-    <form onSubmit={handleSubmit(submitBook)}>
-      <input type="text" {...register('title', { required: true })} placeholder="Book title" />
-      <input type="text" {...register('author', { required: true })} placeholder="Author" />
-      <input type="text" {...register('category', { required: true })} placeholder="Category" />
-      <input type="submit" value="Submit" />
-    </form>
+    <div className="formParent">
+      <hr className="formDevider" />
+      <h2 className="titleForm">ADD NEW BOOK</h2>
+      <form onSubmit={handleSubmit(submitBook)}>
+        <input type="text" {...register('title', { required: true })} placeholder="Book title" />
+        <input type="text" {...register('author', { required: true })} placeholder="Author" />
+        <input type="text" {...register('category', { required: true })} placeholder="Category" />
+        <input className="submitBook" type="submit" value="ADD BOOK" />
+      </form>
+    </div>
   );
 };
 
