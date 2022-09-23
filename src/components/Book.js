@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBookFetch } from '../redux/books/books';
-import circle from '../images/circle.png';
 
 const Book = (props) => {
   const { id, book } = props;
@@ -29,7 +28,11 @@ const Book = (props) => {
 
       <div className="bookContainer2">
         <div className="progressContainer">
-          <img className="circleProgress" src={circle} alt="Progress circle" />
+          <div>
+            <div className="firstCircle">
+              <div className="subCircle" />
+            </div>
+          </div>
           <section className="progressSection">
             <p className="percentage">64%</p>
             <h3 className="completed">completed</h3>

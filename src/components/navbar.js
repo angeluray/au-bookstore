@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import profilepicture from '../images/profilepicture.png';
 
 const SiteNavbar = () => {
   const links = [
@@ -29,7 +28,9 @@ const SiteNavbar = () => {
             ))}
           </ul>
         </div>
-        <img className="profileNav" src={profilepicture} alt="logo" />
+        <div className="profileNav">
+          <span className="material-icons">person</span>
+        </div>
       </nav>
     </>
   );
